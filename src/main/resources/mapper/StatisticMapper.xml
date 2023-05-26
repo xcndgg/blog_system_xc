@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xc.blog_system_xc.mapper.StatisticMapper" >
+
+    <select id="findStstisticByArticId" parameterType="int" resultType="com.xc.blog_system_xc.domain.Statistic">
+        SELECT * FROM t_statistic WHERE article_id =#{articleId}
+    </select>
+
+    <update id="updateArticleInfoByArticle">
+        UPDATE t_statistic SET hits = #{hits} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteStatistic" parameterType="int">
+        DELETE FROM t_statistic WHERE article_id=#{articleId}
+    </delete>
+    <insert id="addCommentCount">
+        UPDATE t_statistic SET comments_num=#{count} WHERE article_id=#{id}
+    </insert>
+
+</mapper>

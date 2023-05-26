@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-circular-references: true
+  profiles:
+    active: jdbc,redis,mail
+  thymeleaf:
+    cache: false
+  messages:
+    basename: i18n.logo
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.xc.blog_system_xc.domain
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+COOKIE:
+  VALIDITY: 1800
